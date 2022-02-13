@@ -1,0 +1,3 @@
+# exclude all .conf file and .ini file
+.my_pgpass.conf
+.pg_service.conf
