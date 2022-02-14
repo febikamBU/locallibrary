@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Author, Genre, Book, BookInstance, Language
 
+
+# class BooksInline(admin.TabularInline):
+#     model = Book
 # Register the Admin classes for Author using the decorator
 
 
@@ -10,12 +13,18 @@ class AuthorAdmin(admin.ModelAdmin):
                     'date_of_birth', 'date_of_death')
     fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
 
+    # inlines = [BooksInline]
+
 # Register the Admin classes for Genre using the decorator
 
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     pass
+
+
+class BooksInstanceInline(admin.TabularInline):
+    model = BookInstance
 
 # Register the Admin classes for Book using the decorator
 
@@ -28,13 +37,14 @@ class BookAdmin(admin.ModelAdmin):
             'fields': ('title', 'author', 'isbn', 'summary', ('genre', 'language'))
         }),
     )
+    inlines = [BooksInstanceInline]
 
 # Register the Admin classes for BookInstance using the decorator
 
 
 @admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
-    list_filter = ('status', 'due_back')
+    list_filter = ('book', 'status', 'due_back', 'id')
     fieldsets = (
         ("Book Instance", {
             'fields': ('book', 'imprint', 'id')
