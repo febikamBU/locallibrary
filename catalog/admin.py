@@ -1,44 +1,30 @@
 from django.contrib import admin
 from .models import Author, Genre, Book, BookInstance, Language
 
-# Register your models here.
-
-
+# Register the Admin classes for Author using the decorator
+@admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     pass
 
-
-# Register the admin class with the associated model
-admin.site.register(Author, AuthorAdmin)
-
-
+# Register the Admin classes for Genre using the decorator
+@admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     pass
 
-
-# Register the admin class with the associated model
-admin.site.register(Genre, GenreAdmin)
-
-
+# Register the Admin classes for Book using the decorator
+@admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     pass
 
-
-# Register the admin class with the associated model
-admin.site.register(Book, BookAdmin)
-
-
+# Register the Admin classes for BookInstance using the decorator
+@admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
     pass
 
-
-# Register the admin class with the associated model
-admin.site.register(BookInstance, BookInstanceAdmin)
-
-
+# Register the Admin classes for BookInstance using the decorator
+@admin.register(Language)
 class LanguageAdmin(admin.ModelAdmin):
     pass
 
 
-# Register the admin class with the associated model
-admin.site.register(Language, LanguageAdmin)
+
