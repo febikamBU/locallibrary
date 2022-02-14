@@ -5,9 +5,17 @@
 __pycache__
 db.sqlite3
 media
+__pycache__/
 
 # Backup files # 
-*.bak 
+*.BAK
+.idea/
+*.bak
+.vscode/
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
 
 # If you are using PyCharm # 
 # User-specific stuff
@@ -50,6 +58,7 @@ atlassian-ide-plugin.xml
 *$py.class 
 
 # Distribution / packaging 
+.Python
 .Python build/ 
 develop-eggs/ 
 dist/ 
@@ -67,6 +76,7 @@ wheels/
 *.egg 
 *.manifest 
 *.spec 
+MANIFEST
 
 # Installer logs 
 pip-log.txt 
